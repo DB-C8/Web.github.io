@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web610 - Superior Custom Websites</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Styles -->
+    <style>
+        /* Reset and Basic Styles */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Navigation Styles */
+
+        .navbar {
+            background: #0A001F;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+        }
+
+        .navbar .logo img {
+            width: 100%;
+            /* Adjust the width of the image to fit within its container */
+            height: auto;
+            /* Maintain the aspect ratio of the image */
+            max-width: 110px;
+            /* Set a maximum width for the logo image */
+        }
+
+        .navbar .logo {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .navbar .nav-menu {
+            list-style: none;
+
+            display: flex;
+        }
+
+        .navbar .nav-menu li {
+            margin-left: 20px;
+        }
+
+        .navbar .nav-menu li a {
+            text-decoration: none;
+            color: #FFFFFF;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-menu li a:hover {
+            color: #783BFA;
+        }
+
+        /* Hero Section */
+
+.hero {
+    height: 100vh;
+    background: #0A001F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-content {
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    line-height: 60px; /* Adjust this if needed */
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.hero-content h1 span {
+    position: relative; /* Position relative for pseudo-element */
+    display: inline-block; /* Allow the pseudo-element to align properly */
+    background: linear-gradient(270deg, #783BFA, #8C56FF, #EBA7F4);
+    background-size: 400%; /* Increase background size for more movement */
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent */
+    animation: gradientMoveText 8s linear infinite; /* Adjust the duration for smoother flow */
+}
+
+.hero-content h1 span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust the position to move the marker up slightly */
+    height: 3px; /* Set the height of the marker to be thin */
+    width: 100%; /* Full width under the text */
+    background: linear-gradient(270deg, #783BFA, #8C56FF, #EBA7F4);
+    background-size: 400%; /* Match this to the text for seamless flow */
+    animation: gradientMoveLine 8s linear infinite; /* Match duration for seamless flow */
+    border-radius: 2px; /* Rounded edges for a softer look */
+    z-index: -1; /* Send it behind the text */
+}
+
+@keyframes gradientMoveText {
+    0% {
+        background-position: 0% 0%; /* Start position of gradient for text */
+    }
+    100% {
+        background-position: 100% 0%; /* End position of gradient for text */
+    }
+}
+
+@keyframes gradientMoveLine {
+    0% {
+        background-position: 0% 50%; /* Start position of gradient for line */
+    }
+    100% {
+        background-position: 100% 50%; /* End position of gradient for line */
+    }
+}
+
+
+
+
+
+       .cta-button {
+    background: #783BFA;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s; /* Add transition for box-shadow */
+}
+
+.cta-button:hover {
+    background: #EBA9F3;
+    color: #2A012F;
+    box-shadow: 0 0 20px rgba(235, 169, 243, 0.6); /* Add glow effect */
+}
+
+        /* Section Heading Styles */
+
+        h2 {
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* Value Proposition Section */
+
+        .value-proposition {
+            padding: 80px 0;
+        }
+
+        .value-proposition {
+            background-color: #CCFB53;
+            color: #141B00;
+            padding: 80px 0;
+        }
+
+        .value-proposition h2 {
+            font-size: 3.5em;
+        }
+
+        .value-proposition p {
+            font-size: 1.1em;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .feature {
+            perspective: 1000px;
+            /* Enable 3D space for the flip */
+            width: 100%;
+            /* Ensure feature boxes keep the same width */
+            height: 250px;
+            /* Lock the height to the original box size */
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            /* Match feature box width */
+            height: 100%;
+            /* Match feature box height */
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .feature:hover .flip-card-inner {
+            transform: rotateY(180deg);
+            /* Flip the card on hover */
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border: 2px solid rgba(254, 254, 254, 0.47);
+            border-radius: 10px;
+            background: #141B00;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flip-card-front {
+            transform: rotateY(0deg);
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+            /* Hide the back until hover */
+            color: #F1F1F1;
+            padding: 20px;
+        }
+
+        .feature h3 {
+            font-size: 30px;
+            color: #FFFFFF;
+            margin-bottom: -30px;
+        }
+
+        .feature p {
+            font-size: 15px;
+            color: #F1F1F1;
+            text-align: justify;
+            padding: 35px;
+            text-align: center;
+            /* Center align the paragraph text */
+        }
+
+        .feature .icon {
+            font-size: 2.7em;
+            margin-bottom: 10px;
+        }
+
+        /* Comparison Section */
+
+        .comparison {
+            padding: 150px 0;
+            background: #f9f9f9;
+            /* This is the section background */
+        }
+
+        .comparison h2 {
+            text-align: center;
+            font-size: 2.7em;
+            margin-bottom: 50px;
+        }
+
+        .comparison-table {
+            width: 50%;
+            /* Change from 100% to 80% */
+            margin: auto;
+            /* Center the table */
+            border-collapse: collapse;
+            background: #fff;
+            /* Set table background to white or any other color */
+            border-radius: 10px;
+            overflow: hidden;
+            /* Prevent border radius from being cut off */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            /* Optional: Add some shadow for depth */
+        }
+
+        .comparison-row {
+            display: flex;
+        }
+
+        .comparison-cell {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid rgba(120, 59, 250, 0.09);
+            /* Keep the existing border */
+            border-left: none;
+            /* Hide the left border */
+            border-right: none;
+            /* Hide the right border */
+        }
+
+        /* Add a rounded corner to the top left and top right cells */
+
+        .comparison-row.header .comparison-cell:first-child {
+            border-top-left-radius: 10px;
+            /* Match table border radius */
+        }
+
+        .comparison-row.header .comparison-cell:last-child {
+            border-top-right-radius: 10px;
+            /* Match table border radius */
+        }
+
+        .comparison-row.header {
+            background: #783BFA;
+            /* New background color for header row */
+            font-size: 20px;
+            color: #fff;
+            /* Text color for header */
+        }
+
+        /* Achievements Section */
+
+        .statistics {
+            padding: 100px 0;
+            background: #EBA9F3;
+            border-radius: 0px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .statistics h2 {
+            font-size: 2.7em;
+            /* Change this to your desired font size */
+            color: #2A012F;
+            /* Change this to your desired color */
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .stat {
+            background: #2A012F;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat:hover {
+            transform: translateY(-8px);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            color: #CCFB53;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat p {
+            color: #FFFFFF;
+        }
+
+        /* Testimonials Section */
+
+.testimonials {
+    padding: 80px 0;
+    background: #151515; /* Change background color to dark */
+    position: relative;
+    text-align: center;
+    overflow: hidden; /* Prevent glow from extending outside the section */
+}
+
+.testimonials h2 {
+    font-size: 2.7em;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #fff; /* Change text color to white */
+}
+
+.testimonial-slider {
+    display: flex;
+    overflow: hidden;
+    max-width: 50%;
+    margin: auto;
+    position: relative;
+}
+
+.testimonial-dots {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.dot {
+    height: 6px;
+    width: 6px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    height: 5px;
+    width: 5px;
+    margin: 0 2px;
+    background-color: #783BFA; /* Active dot color */
+}
+
+.testimonial {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for slide effect */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonial p {
+    font-size: 1.2em;
+    margin: 20px 0;
+    color: #fff; /* Change text color to white */
+}
+
+.testimonial p strong {
+    font-weight: bold;
+    color: #fff; /* Change strong text color to white */
+}
+
+/* Glow effect below dots */
+.testimonials::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 10px; /* Adjust this value for vertical positioning */
+    transform: translateX(-50%);
+    width: 100%; /* Full width for the glow */
+    height: 20px; /* Adjust height as needed */
+    background: rgba(120, 59, 250, 0.5); /* Glow color */
+    border-radius: 50%; /* Circular glow */
+    box-shadow: 0 0 20px rgba(120, 59, 250, 0.5); /* Outer glow */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease; /* Smooth transition for appearance */
+}
+
+
+
+
+        /* FAQ Section */
+
+        .faq {
+            padding: 80px 0;
+        }
+
+        .faq h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .accordion {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .accordion-item {
+            margin-bottom: 10px;
+        }
+
+        .accordion-header {
+            background: #783BFA;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        .accordion-content {
+            background: #f1f1f1;
+            padding: 15px;
+            display: none;
+        }
+
+        .accordion-content.show {
+            display: block;
+            background: #EEE7FF;
+        }
+
+        /* FAQ Section Styling */
+
+        .faq {
+            padding: 80px 0;
+        }
+
+        .faq h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+        }
+
+        .accordion {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
+            /* Added space between FAQ items */
+            border-radius: 5px;
+            /* Rounded corners for the FAQ */
+            overflow: hidden;
+            /* Ensures no overflow from rounded corners */
+        }
+
+        .accordion-header {
+            background: #783BFA;
+            color: #fff;
+            padding: 20px;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: #5927DB;
+            /* Slight hover effect */
+        }
+
+        .accordion-content {
+            background: #f1f1f1;
+            padding: 20px;
+            display: none;
+        }
+
+        .accordion-content.show {
+            display: block;
+        }
+
+        /* Footer Section */
+
+        footer {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /* Prevent scrollbar */
+        }
+
+        .footer {
+            background: linear-gradient(270deg, #0A001F, #1A004D);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: moveGradient 10s linear infinite;
+            /* Subtle gradient animation */
+        }
+
+        @keyframes moveGradient {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        .footer h2 {
+            margin-bottom: 20px;
+        }
+
+        .footer input,
+        .footer textarea {
+            padding: 15px;
+            width: 50%;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #e0e0e0;
+            /* Slightly brighter text */
+            font-family: 'Poppins', sans-serif;
+            /* Poppins font */
+            font-size: 16px;
+            /* Set the same size for all fields */
+        }
+
+        .footer button {
+            padding: 15px;
+            width: 50%;
+            background-color: #783BFA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+        }
+
+        .footer button:hover {
+            background-color: #EBA9F3;
+            color: #2A012F;
+        }
+
+        .footer p {
+            margin-top: 20px;
+            color: #ccc;
+        }
+
+        .footer .social-icons {
+            margin-top: 20px;
+        }
+
+        .footer .social-icons a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .footer .social-icons a:hover {
+            color: #783BFA;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+    <img src=https://i.postimg.cc/vZC5McSw/LOGO-WHITE.png alt="Web610 Logo">
+</a>
+            <ul class="nav-menu">
+                <li><a href="#value-proposition">Why Web610?</a></li>
+                <li><a href="#comparison">The Difference</a></li>
+                <!-- <li><a href="#statistics">Why Web610?</a></li> -->
+                <li><a href="#testimonials">Results</a></li>
+                <li><a href="#faq">FAQs</a></li>
+            </ul>
+        </div>
+    </div>
+
+  <div class="hero">
+    <div class="hero-content">
+        <h1>Digital Solutions That Drive </br><span>Real Results</span></h1>
+        <p>Employee-owned. AI-powered. Results-driven.</p>
+        <a href="#value-proposition" class="cta-button">Get Started</a>
+    </div>
+</div>
+
+    </div>
+    </div>
+    <section class="value-proposition" id="value-proposition">
+        <h2>Why Choose Us?</h2>
+        <div class="features">
+            <div class="feature">
+                <div class="flip-card-inner">
+                    <!-- Front of the card -->
+                    <div class="flip-card-front">
+                        <div class="icon">🚀</div>
+                        <h3>Fast</h3>
+                    </div>
+                    <!-- Back of the card -->
+                    <div class="flip-card-back">
+                        <p>We value your time and ensure timely delivery of projects.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="icon">🎨</div>
+                        <h3>Unique</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Our designs are unique and tailored to your needs. Templates are never used.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="icon">🔒</div>
+                        <h3>Secure</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Your website's security is our top priority.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="icon">📈</div>
+                        <h3>Future-Proof</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>We ensure your website ranks high on search engines. This includes On-page SEO, Off-page SEO, and Technical SEO.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Comparison Section with Competitors -->
+    <section class="comparison" id="comparison">
+        <h2>Compare Web610 vs Competitor</h2>
+        <div class="comparison-table">
+            <div class="comparison-row header">
+                <div class="comparison-cell">Features</div>
+                <div class="comparison-cell">Web610</div>
+                <div class="comparison-cell">Competitor 1</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell">Custom Design</div>
+                <div class="comparison-cell icon-check">✔️</div>
+                <div class="comparison-cell icon-cross">❌</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell">SEO Optimization</div>
+                <div class="comparison-cell icon-check">✔️</div>
+                <div class="comparison-cell icon-check">✔️</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell">24/7 Support</div>
+                <div class="comparison-cell icon-check">✔️</div>
+                <div class="comparison-cell icon-cross">❌</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell">Free Consultation</div>
+                <div class="comparison-cell icon-check">✔️</div>
+                <div class="comparison-cell icon-cross">❌</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell">Lifetime Updates</div>
+                <div class="comparison-cell icon-check">✔️</div>
+                <div class="comparison-cell icon-cross">❌</div>
+            </div>
+        </div>
+    </section>
+
+    <!--<section class="statistics" id="statistics">
+        <h2>Our Achievements</h2>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">100+</div>
+                <p>Projects Completed</p>
+            </div>
+            <div class="stat">
+                <div class="stat-number">50+</div>
+                <p>Happy Clients</p>
+            </div>
+            <div class="stat">
+                <div class="stat-number">200+</div>
+                <p>Hours of Support</p>
+            </div>
+            <div class="stat">
+                <div class="stat-number">10</div>
+                <p>Awards Won</p>
+            </div>
+        </div>
+    </section>  
+<<Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <p>"Web610 transformed my business's online presence! Highly recommend!"</p>
+                <p><strong>John Doe</strong></p>
+            </div>
+            <div class="testimonial">
+                <p>"Fantastic service and amazing designs. I'm thrilled with the results!"</p>
+                <p><strong>Jane Smith</strong></p>
+            </div>
+            <div class="testimonial">
+                <p>"The team was responsive, creative, and delivered on time. Thank you!"</p>
+                <p><strong>Michael Johnson</strong></p>
+            </div>
+        </div>
+        <div class="testimonial-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+
+
+    <section class="faq" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header">What services do you offer?</button>
+                <div class="accordion-content">
+                    <p>We offer web design, development, and SEO services.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">How can I contact you?</button>
+                <div class="accordion-content">
+                    <p>You can reach us via email or our contact form.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">What is your pricing model?</button>
+                <div class="accordion-content">
+                    <p>Our pricing varies based on the project scope.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elegant Background Footer -->
+    <footer class="footer">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p>© 2024 <br> All rights reserved. </p>
+    </footer>
+
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            const slides = document.getElementsByClassName("testimonial");
+            const dots = document.getElementsByClassName("dot");
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            slides[slideIndex - 1].style.display = "flex";
+            dots[slideIndex - 1].className += " active";
+
+            // Change slide every 4 seconds (4000 milliseconds)
+            setTimeout(showSlides, 4000);
+        }
+    </script>
+
+
+    <script>
+        const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener("click", () => {
+                const content = header.nextElementSibling;
+                const allContent = document.querySelectorAll(".accordion-content");
+
+                // Close any open content
+                allContent.forEach(item => {
+                    if (item !== content) {
+                        item.classList.remove("show");
+                    }
+                });
+
+                // Toggle current content
+                content.classList.toggle("show");
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Button with Blinking Dot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to Poppins font -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Apply Poppins font */
+            margin: 0;
+            padding: 0;
+            height: 2000px;
+            /* Just for demonstration to allow scrolling */
+            background-color: #f4f4f4;
+            /* Light background for contrast */
+        }
+
+        /* Sticky button styles */
+
+       .sticky-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #C2EA66;
+    color: #000000;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+    animation: pulse 1s infinite; /* Pulse animation */
+    display: flex; /* Use flexbox for positioning */
+    align-items: center; /* Center items vertically */
+    border: 1px solid rgba(27, 37, 0, 0.5); /* Add a 1px border with 50% opacity */
+}
+
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .sticky-button:hover {
+            background-color: #EBA9F3;
+            /* Darker color on hover */
+        }
+
+        /* Blinking dot styles for the sticky button only */
+
+        .blinking-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #000000;
+            /* Dot color */
+            border-radius: 50%;
+            /* Make it circular */
+            margin-right: 10px;
+            /* Space between dot and text */
+            animation: blink 1s infinite;
+            /* Blinking animation */
+        }
+
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 0;
+                /* Invisible */
+            }
+            50% {
+                opacity: 1;
+                /* Visible */
+            }
+        }
+
+        /* Styles for your testimonial slider dots (if applicable) */
+
+        .testimonial-dot {
+            width: 8px;
+            /* Adjust size if needed */
+            height: 8px;
+            /* Adjust size if needed */
+            background-color: #ccc;
+            /* Default dot color */
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+            /* Space between dots */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Other content of your landing page -->
+
+    <a href="#get-started" class="sticky-button">
+        <div class="blinking-dot"></div>
+        <!-- Blinking dot -->
+        Get Your Website
+    </a>
+
+    <!-- Other content of your landing page -->
+
+    <!-- Example testimonial slider dots -->
+    <div class="testimonial-slider">
+        <div class="testimonial-dot"></div>
+        <div class="testimonial-dot"></div>
+        <div class="testimonial-dot"></div>
+        <!-- Add more testimonial dots as needed -->
+    </div>
+</body>
+
+</html>
